@@ -1,0 +1,16 @@
+INTERVIEW QUESTIONS
+
+1.Explain your role as a QA.
+2.What did you do in the recent project.
+3.Explain your team structure in the recent project.
+4.Can you write the code for setting up Appium Server.
+  What changes would you make in the code for testion Android and IOS.
+5.How strong are you in Java Programming.
+  How would you rate yourself in a Scale from 1 to 10.
+6.Explain the algorithm and code for Bubble Sort.
+7.Which testing FW did you use more frequently-TestNG or JUnit.
+8.What is the difference between Selenium and Appium.
+9.Syntax for Insert,Select, and Delete in SQL.
+10.What is the difference between Delete and Drop.
+11.What is the difference between thread and process.
+12.Why did you use Soap UI tool in your projects.

@@ -1,0 +1,122 @@
+                                                  Selenium Grid Parallel Testing
+
+
+
+objective:
+
+1. What is Slenium Grid, Parallel Testing ?
+2. Hub, Node, grid console?
+2. How to configure Hub and node in your machine?
+3. How to run test cases between hub and node?
+4. what and Why Browserstack?
+5. How to install browserstack?
+6. how to perform Parallel testing using browserstack?
+
+___________________________________________________________________________________________________________________________________
+
+
+1.Selenium Grid??????
+
+Selenium Grid allows us to execute our tests in 
+	multiple machines (physical / virtual),
+	multiple browsers with different versions,
+	speeds up test execution 
+	helps in reducing total amount of time required for test execution.
+
+For example, if we have a script that takes 100 minutes to execute sequentially , 
+we could break that down to 10 short tests script run across 10 machines, 
+and can complete them in 10 minutes without copying your test code to the other machine.
+
+___________________________________________________________________________________________________________________________________
+
+2.Parallel Testing????
+
+ testing of multiple applications or subcomponents of one application concurrently to reduce the test time.
+
+ Hint: testing an application - one to many - at the same time.
+
+___________________________________________________________________________________________________________________________________
+
+3.What does a grid consists of?
+ 	A grid consists of a single hub, and one or more nodes,
+ 	Hub and Node are the two main elements that you come across when using grid
+___________________________________________________________________________________________________________________________________
+
+
+4.What is hub?
+	Hub the Hub is the central point which will receive all the test requests along with information on which browser, 
+	platform (i.e. WINDOWS, LINUX, etc) and where the test should be run. 
+	Based on the request received, it will distribute them to the registered nodes.
+
+___________________________________________________________________________________________________________________________________
+
+5. What is Node?
+	Nodes are where our tests will run,
+	each Node is machine (can be a physical machine / virtual machine) that we register with the Hub,
+	when we register Node, Hub will get to know about the node, and it will display browser and configuration details 
+		of the node that we used to register node with parameters.
+	The node can be configured in two different ways,(1)command line parameters (2) by a json file.
+
+___________________________________________________________________________________________________________________________________
+6. how to set webdriver nodes?
+
+	For webdriver nodes, we need to use the 
+  (1)RemoteWebDriver 
+  (2)DesiredCapabilities object to define which browser, version of the browser and platform (OS - Windows / LINUX etc) 
+   that we want to run our tests.
+
+___________________________________________________________________________________________________________________________________
+
+7. Steps for Selenium Grid setup.
+
+Download Selenium standalone server, drivers(gecko, chrome etc) from Selenium.hq.org
+1. Start a Hub in cmd
+2. create nodes in cmd
+3. Regsiter nodes with the hub 
+4. Set the path for nodes to drivers location 
+4. run the test with selenium grid
+5. open and view the grid console
+
+We have done with starting the Hub and Registering Nodes with the Hub.
+ Now we need to run our tests with Selenium Grid,
+
+___________________________________________________________________________________________________________________________________
+
+8. Why we need to use RemoteWebdriver Not the webdriver ?
+
+If we use driver (FirefoxDriver / ChromeDriver / or other) not RemoteWebDriver, it will just assume that the communication 
+to the browser is local. 
+Eg: - Webdriver driver = new FirefoxDriver(); Using this, driver will access Firefox browser which is available on the local machine.
+
+If we use RemoteWebDriver, it requires us to specify where the Selenium Server is located and on which web browser
+ we want to execute our tests. 
+
+___________________________________________________________________________________________________________________________________
+
+
+Configuring Hub nad nodes using cmd....
+
+
+STEP 1: Create hub and Nodes
+
+C:\Selenium>java -jar selenium-server-standalone-3.4.0.jar -role node -hub http://sumathi-hari:4444/grid/register -port 5527
+
+C:\Selenium>java -jar selenium-server-standalone-3.4.0.jar -role node -hub http://sumathi-hari:4444/grid/register -port 5537
+
+C:\Selenium>java -jar selenium-server-standalone-3.4.0.jar -role hub
+
+
+
+STEP 2:Set the path for GECKO and CHROME driver for the nodes
+
+java -Dwebdriver.gecko.driver="C:\Selenium\geckodriver.exe" -jar selenium-server-standalone-3.4.0.jar -role webdriver -hub http://sumathi-hari:4444/grid/register -port 5537
+
+java -Dwebdriver.chrome.driver="C:\Selenium\chromedriver.exe" -jar selenium-server-standalone-3.4.0.jar -role webdriver -hub http://sumathi-hari:4444/grid/register -port 5527
+  
+
+Note: port numbers can be assigned randomly other than 4444
+	http://sumathi-hari:4444/grid/register - is the path given by hub...check ur hub log 
+	sumathi-hari--- is my device name here, you can also configure using device ip(not recommended).
+	C:\Selenium\geckodriver.exe----this is the location where gecko and chrome drivers were stored in my machine.
+
+

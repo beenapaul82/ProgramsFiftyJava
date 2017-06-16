@@ -1,0 +1,75 @@
+COMCAST 
+First Round
+
+What is the diffreence between Method Overloading and Method Overriding.
+What are idempotent methods.
+Difference between throw and throws.
+Difference between final and finally.
+How did you test WebServices.
+What are the limitations of using Selenium WebDriver.
+What are the differnt locators in WebDriver.
+What are the limitations of Soap UI Tool
+Expalin about the Select class in WebDriver.
+Explain how do you do the WebServices Testing.
+If you have  a video playing Application, what would be the test cases that you can come across.
+Explain in detail for which all cases you do Manual Testing and Automation Testing.
+How do you yest teh webservices using Soap UI Tool.Explain.
+What is the difference between equals and == methods.
+Explain about the Action class in WebDriver.
+
+Second Round
+Given a Comcast Application, which is a video playing app, briefly explain about the test cases that you think of.
+What is cache.
+What is a  session.Where is it stored.Explain a session life cycle.
+What is a cookie.Explain Cookie life cycle.
+What is a curl.
+Explain how would you test a AngularJS Application.
+
+Third Round
+Expalin about your overall QA experience.
+Explain about your current project that you are doing now.
+Explain how do you do Performance Testing.Explain the steps that you follow.
+What is your experience on Jenkins.
+Explain how do you do the WebService Testing using Soap UI Tool.
+
+Fourth Round
+Explain the Automation Framework.
+Once you hit the Url, explain in detail what are the steps that are happening.
+Explain your Mobile Automation Experience.How do you do Android and IOS Testing.
+Expalin what is Regression Testing,and how often do you do.
+Differentiate native,hybrid and mobile web apps.
+
+Fifth Round
+What methodology you use in your project.
+What are the daily activities that you do in your team.
+Explain your team structure.
+What would you do if any bug comes up in production.Have you faced that.
+What would you do if you think that there is a bug in development, but developer is not agreeing to that.
+How do you raise a  defect.
+What are the things that you think should be there in a test plan.
+Have you done any leadership roles in your project.
+Being a senior QA Lead, explain how would you start developing test strategies.
+What are the diffrent phases of testing.
+Given the requirement, how do you start with the testing.What are the test methodologies that you would follow.
+What are the things that you think you will do in the first 3 months,being a QA lead.
+
+Sixth Round
+What is WEbService mocking.How do you do that.
+How do you handle the dependancies in testing.
+What is XPath.
+If you have 3 webservices dependent on each other, how would you do the performance testing.
+Briefly explain how do you do the Stress Testing.
+Write a Java Program to move all even elements to the left and odd elements to the right, without changing the order of elements.
+  Input  { 2,3,4,5,6,7,1,4,9,8}
+  Output {2,4,6,4,8,3,5,7,1,9}
+ How did you do the Rest Automation framework.
+ What is a BDD Framework.Have you worked on it.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+1.Explain your QA experience.
+2.Explain your automation FW.
+3.What are the annotations you use commonly in TestNG.
+4.How often do you run Regression Testing.How much time it would
+take.
+5.Structure of your team.
+6.Why do you use Actions.
+7.What is the use of select class.How do you use it.
+8.How do you access RadioButtons.
+9.How do u check whether particular element is highlighted or not.
+10.What are the daily activities you do in project.
+11.How do you do cross browser testing.
+12.Which all browsers you test quite often.
+13.Any Questions.

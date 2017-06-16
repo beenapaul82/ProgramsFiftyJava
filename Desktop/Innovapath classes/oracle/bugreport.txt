@@ -1,0 +1,41 @@
+FORMAL DEFECT REPORT
+
+Defect ID:CP2345
+Project:WEBFEAT
+Area Path:Home/Sign Up
+Release Version:Version Number 3.0.1
+Module:WEBREGISTER
+Environment:Prod
+Detected Buid Version:3.0.1.2
+Defect Summary:Hobbies/Interests field ends up blank 
+even when the user had entered information
+Defect Severity:Minor
+Defect Priority:Medium
+Assigned to:Developer-A
+Reported By:Beena Paul
+Reported ON:2-1-2016
+Reason:Defect
+Status:New
+
+Description:
+Ocacssionally, Hobbies/Interests field ends up blank 
+even when the user had entered information.
+
+Steps To Replicate:
+1)Go to the Home Page. 
+2)Click Sign Up.
+3)Fill the User Name and Password.
+3)Reenter the password.
+4)If the password entered twice do not match,
+error message is to be dispalyed.
+5)If the password entered matches,enter the hobbies/interests
+in the text area.
+6)Occassionally hobbies/interests fields end up blank even 
+with correct information.
+
+Actual Result:Occassionally hobbies/interests fields end up blank even 
+with correct information.
+
+
+Expected Result:Hobbies/Interests should not be blank after user enters the information.
+Attachments:(Attach Screen shot..if any)

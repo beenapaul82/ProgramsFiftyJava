@@ -1,0 +1,832 @@
+Interview questions 
+
+1) what technologies do you have experience on?
+
+
+2)what framework have use to develop?
+•	Data driven
+•	Keyword driven
+•	Modular based
+•	Hybrid
+---------------------------------------------------------------------------------------------------------------------------------
+
+3)What do you mean by data driven? 
+•	Is a type of testing framework
+•	Used to test only for the data contained in  data files.
+•	Input and output values are read from data files(CSV,Excel,ODBC etc)
+•	These data are loaded into variables in manually coded script.
+•	Varibales are used to identify both inputs and outputs.
+•	Test scripts are coded for 1. Navigation of pgm 2.reading data files 3.logging test status
+Adv: reduces redundancy and duplication of automated scripts
+	Scripts developed paralley during appl developing is in progress
+	If functionality changes, only specific script of fun needs to be changed
+	Data storage is easily maintained in test records.
+Disadv: needs proficiency in scripting language, needs mulitiple data files 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+4)how do  you identify object?
+Objects are identified using locators in selenium. 
+Use Inspect element using firpath/firebug
+CSS and Xpath are most commonly used
+Locators in selenium – By (Id,Name,ClassName,TagName,Xpath,CSS,DOM)
+---------------------------------------------------------------------------------------------------------------------------------
+
+5)which one is good(better) css or xpath? 
+
+bith eqaually preferable 
+based on application 
+Xpth--- XML based, CSS---- HTML based
+Xpath---- can traverse back and forth, cant locate dynamically changing web element, doesnt support all browser
+CSS---- cleaner, faster, supports multiple browser,can identify dynamically changing webelement,
+        Easy to construct,
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+6)you use page object right? 
+Yes
+
+7)explain what is page object pattern and what are the advantages. 
+•	Is a design pattern in framework
+•	Is a way of representing an appln in test frmwrk
+•	i.e. for every page in the appln we create a page object as a reference.
+•	It doesn’t allow coding, istead it abstract the physical structure of the page.
+•	Its API allows user to acess the webpage and hides implementation details (webelments, ids) of the page.
+Adv: makes script more readable, reusable and maintainanable.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+8)give me an example on your current application of page object? 
+If I wanna test a login page of my appln, 
+Create a java class as LOGINPAGE and store all webelements in that class
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+9)you have use page factory
+Yes
+
+10)why do we use page factory? Explain. 
+•	It’s a way to implement the page model.
+•	It allows us to write the code and to inject weblelements defined in page object using webdriver
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+11)if you have a scenario where you have to verify presence of particular element. How can you verify that? 
+
+Using assert “is present “
+
+(or)
+
+boolean present;
+try {
+   driver.findElement(By.id("logoutLink"));
+   present = true;
+} catch (NoSuchElementException e) {
+   present = false;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+how do you handle pop ups in selenium web driver? 
+
+Alerts are a small box that appears on the display screen to give you some kind of information or warning or user permission.
+
+There are popularly two types of alerts–
+Windows based alert pop ups
+Web based alert pop ups
+
+Prior to the actual scripting, we need to import a package to be able to create a WebDriver script for handling a dropdown
+ and making the Select class accessible.
+
+WebDriver offers the users with a very efficient way to handle these pop ups using Alert interface.
+
+void dismiss() – The dismiss() method clicks on the “Cancel” button as soon as the pop up window appears.
+void accept() – The accept() method clicks on the “Ok” button as soon as the pop up window appears.
+String getText() – The getText() method returns the text displayed on the alert box.
+void sendKeys(String stringToSend) – The sendKeys() method enters the specified string pattern into the alert box.
+
+it doesn’t support windows based applications and window alert.
+
+Robot class is a java based utility which emulates the keyboard and mouse actions and can be effectively used to handling 
+window based pop up with the help of keyboard events.
+
+The keyPress and keyRelease methods simulate the user pressing and releasing a certain key on the keyboard respectively. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+what is the difference between the implicit wait and explicit wait? 
+
+Implicit Wait: During Implicit wait if the Web Driver cannot find it immediately because of its availability, 
+it will keep polling (around 250 milli seconds) to get the element. 
+If the element is not available within the specified Time an NoSuchElementException will be raised. 
+ Once we set a time, the Web Driver waits for the period of the WebDriver object instance.
+Eg:
+driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+
+It accept 2 parameters, the first parameter will accept the time as an integer value and the 
+second parameter will accept the time measurement in terms of SECONDS, MINUTES, MILISECOND, MICROSECONDS, NANOSECONDS, DAYS, HOURS, etc
+
+
+
+Explicit Wait: There can be instance when a particular element takes more than a minute to load.
+ In that case you definitely not like to set a huge time to Implicit wait, as if you do this your browser will going to wait
+ for the same time for every element.
+
+To avoid that situation you can simply put a separate time on the required element only.
+ By following this your browser implicit wait time would be short for every element and it would be large for specific element.
+Eg:
+WebDriverWait wait=new WebDriverWait(driver, 20);
+In this eg, we are creating reference wait for "WebDriverWait" class and instantiating using "WebDriver" reference,
+ and we are giving a maximum time frame of 20 seconds.
+ 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+have you handled exception in web driver? please explain. 
+
+Yes, An Exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program. 
+ or in simple words, any issue which makes your test case stop in between the execution is an Exception.
+
+Exception handling refers to the anticipation, detection, and resolution of programming application, and communications errors. 
+It is the block of code that processes the exception object and helps us by giving us a chance to act on it.
+
+
+
+1) NoSuchElementException : FindBy method can’t find the element.
+
+2) StaleElementReferenceException : This tells that element is no longer appearing on the page.
+
+3) TimeoutException: This tells that the execution is failed because the command did not complete in enough time.
+
+4) ElementNotVisibleException: Thrown to indicate that although an element is present on the page, it is not visible, and so is not able to be interacted with
+
+5) ElementNotSelectableException: Thrown to indicate that may be the element is disabled, and so is not able to select.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+how do you implement?  can you give me an example in a particular case? 
+
+try/catch block, throw/throws, finally along with try/catch block.
+
+    try
+	{
+
+	   //Some code
+
+	}catch(ExceptionType1 e1){
+
+	   //Code for Handling the Exception 1
+
+	}catch(ExceptionType2 e2){
+
+	   //Code for Handling the Exception 2
+
+	}
+
+*******************************************************************
+public static void anyFunction() throws Exception{
+
+    try{
+
+		// write your code here    
+
+	}catch (Exception e){
+
+		// Do whatever you wish to do here
+
+		// Now throw the exception back to the system
+
+        throw(e);
+
+        }
+
+    }
+*********************************************************************
+try
+
+	{
+
+	   //Protected code
+
+	}catch(ExceptionType1 e1)
+
+	{
+
+	   //Catch block
+
+	}catch(ExceptionType2 e2)
+
+	{
+
+	   //Catch block
+
+	}finally
+
+	{
+
+	   //The finally block always executes.
+
+	}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+have you ever done resizing on control page? 
+
+yes, it is required to resize browser window sometimes in webdriver, particularly when we are testing for responsive web design 
+because we need to check to see how the different elements on the page looks when we resize the browser window.
+
+Resize the window to the screen width/height
+driver.set_window_size(300, 500)
+
+eg:
+
+public class BrowserOperations {
+     WebDriver driver;
+     
+     //this will open browser with default size
+     public void launchBrowser() {
+          driver = new FirefoxDriver();
+     }
+     
+     public void resizeBrowser() {
+          Dimension d = new Dimension(800,480);
+          //Resize current window to the set dimension
+          driver.manage().window().setSize(d);
+     }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+can you name the most commonly used http menthods in REST?
+
+GET,POST,PUT,DELETE
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+what are the difference between post and put? 
+
+POST:(create)
+not an idempotent method as it always returns response with different result.
+sends data to a particular URI and inturn URI will deal with the requests and deicides what to do with the data.
+
+PUT:(update)
+is Idempotent method
+puts the file at a particular URI, if file already exists, it changes the file, if doesnt exists it creates a new one.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+what do you understand by payload? 
+
+Typically the term payload refers to JSON-formatted text that is either posted (via an http POST) to a web service 
+when a user creates a resource or returned from a web service (via an http GET) when a user requests a resource (or resources).
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+  any difference between SOAP and REST? 
+---------------------------------------------------------------------------------------------------------------------------------
+
+Can you explain what dependency Injection is? 
+
+Dependency injection is a framework that takes care of creating objects for us without having to worry about
+ providing the right ingredients.
+
+Eg:Let say we have a class, Person, and this class needs to send a message. 
+The Person class requires the aid of some other class, Email, in order to send a message.
+
+public class Email {
+ public void sendEmail(String subject, String message){
+   // Send the email
+ }
+}
+
+*************************************************
+public class Person {
+ private Email email = new Email();
+
+ public void greetFriend(){
+   email.sendEmail("Hello", "Hello my friend :)");
+ }
+}
+ 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+Is there any way to define the priority of your test? 
+
+yes, @Test (priority=1)	
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Can you explain the concept soft assertion? And hard assertion? 
+
+Assertions are the best method to perform any kind of validations in the tests.
+ When an assertion fails the test script stops execution unless handled in some form. 
+There are two types of assertions:
+
+
+Soft Assertions.
+Hard Assertions
+
+->The hard assertion used to mark method as fail if assertion condition get false and the remaining statements inside 
+the method will be aborted.
+
+-> But the soft Assertion used to mark method as fail if assertion condition get false and the remaining statements inside 
+the method will be continue the process. And also its reports them the Assertion get failure.
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+How to use Hard Assertion in Selenium Webdriver
+
+-> We can use pre defined class(Assert) for Hard Assertion. We no need to create object.
+
+-> We use Hard Assertion in Selenium Webdriver like below
+
+Assert.assertEquals(actual, expected)
+Assert.assertNotEquals(actual, expected, message)
+Assert.assertTrue(condition)
+Assert.assertFalse(condition)
+Assert.assertNull(object)
+Assert.assertNotNull(object)
+
+---------------------------------------------------------------------------------------------------------------------------------
+How to use Soft Assertion in Selenium Webdriver
+
+
+-> If you use soft assertion then your test execution will remain continue even If any assertion fails.
+
+-> The Assertion failure will be reported in the report, so that we can verify at the end of the execution.
+
+-> We can use soft assertion when we have multiple assertions need to be run in same method and execute all assertion
+ even if any one of them fails in between.
+
+-> To use testng soft assertion, you have to use testng SoftAssert class. Its declaration like below,
+
+SoftAssert S_assert = new SoftAssert()
+
+The we can use above object (S_assert) for using same methods which using in Hard Assertion like
+
+S_assert.assertEquals(actual, expected)
+S_assert.assertNotEquals(actual, expected, message)
+S_assert.assertTrue(condition)
+S_assert.assertFalse(condition)
+S_assert.assertNull(object)
+S_assert.assertNotNull(object)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Whats better testNG or Junit? 
+
+JAVA questions
+
+Have you used collections in java? 
+
+Can you tell me the implementations? 
+
+What is difference between linked list and array list?
+
+have you used the concept of threading? 
+
+difference between sting and string buffer?
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+12) Explain the steps for Bug Cycle?
+
+Once the bug is identified by the tester, it is assigned to the development manager in open status
+
+If the bug is a valid defect the development team will fix it and if it is not a valid defect, 
+      the defect will be ignored and marked as rejected
+
+The next step will be to check whether it is in scope, if it is happen so that, the bug is not the part of the current release 
+      then the defects are postponed
+
+If the defect or bug is raised earlier then the tester will assigned a DUPLICATE status
+
+When bug is assigned to developer to fix, it will be given a IN-PROGRESS status
+
+Once the defect is repaired, the status will changed to FIXED at the end the tester will give CLOSED status if it passes
+ the final test.
+
+
+OPEN, IN-PROGRESS, RESOLVED, CLOSED, REOPENED ------> JIRA
+---------------------------------------------------------------------------------------------------------------------------------
+
+13) What does the test strategy include?
+ The test strategy includes introduction, resource, scope and schedule for test activities, test tools, test priorities,
+ test planning and the types of test that has to be performed.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+14) Mention the different types of software testing?
+Unit testing
+Integration testing and regression testing
+Smoke testing
+Functional testing
+Performance testing
+White box and Black box testing
+Alpha and Beta testing
+Load testing and stress testing
+System testing
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+14) What is branch testing and what is boundary testing?
+
+The testing of all the branches of the application, which is tested once, is known as branch testing.  
+While the testing, which is focused on the limit conditions of the software is known as boundary testing.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+15) What are the contents in test plans and test cases?
+
+Testing objectives
+Testing scope
+Testing the frame
+The environment
+Reason for testing
+The criteria for entrance and exit
+Deliverables
+Risk factors
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+16) What is Agile testing and what is the importance of Agile testing?
+
+ Agile testing is software testing, which involves the testing of the software from the customer point of view. 
+ 
+ The importance of this testing is that, unlike normal testing process, this testing does not wait for development team to complete 
+ the coding first and then doing testing. 
+
+ The coding and testing both goes simultaneously. 
+ It requires continuous customer interaction.
+
+ It works on SDLC ( Systems Development Life Cycle) methodologies, it means that the task is divided into different segments
+ and compiled at the end of the task.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+17) What is Test case?
+
+Test case is a specific term that is used to test a specific element.  
+It has information of test steps, prerequisites, test environment and outputs.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+18) What is the strategy for Automation Test Plan?
+
+The strategy for Automation Test Plan
+Preparation of Automation Test Plan
+Recording the scenario
+Error handler incorporation
+Script enhancement by inserting check points and looping constructs
+Debugging the script and fixing the issues
+Rerunning the script
+Reporting the result
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+17) What are the tools used by a tester while testing?
+
+Selenium
+Firebug
+OpenSTA
+WinSCP
+YSlow for FireBug
+Web Developer toolbar for firebox
+
+---------------------------------------------------------------------------------------------------------------------------------
+18) Explain stress testing, load testing and volume testing?
+
+Load Testing: Testing an application under heavy but expected load is known as Load Testing. 
+ Here, the load refers to the large volume of users, messages, requests, data, etc.
+
+Stress Testing: When the load placed on the system is raised or accelerated beyond the normal range then it is known as Stress Testing
+
+Volume Testing:  The process of checking the system, whether the system can handle the required amounts of data, user requests, etc. 
+ is known as Volume Testing.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+19) What are the five common solutions for software developments problems?
+
+Setting up the requirements criteria, the requirements of a software should be complete, clear and agreed by all
+The next thing is the realistic schedule like time for planning , designing, testing, fixing bugs and re-testing
+Adequate testing, start the testing immediately after one or more modules development.
+Use rapid prototype during design phase so that it can be easy for customers to find what to expect
+Use of group communication tools
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+20) What is validation and verification in software testing?
+
+In verification, all the key aspects of software developments are taken in concern like code, specifications,
+ requirements and document plans.  
+
+Verification is done on the basis of four things list of issues, checklist, walkthroughs and inspection meetings. 
+
+Following verification, validation is done, it involves actual testing, and all the verification aspects are checked thoroughly 
+in validation.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+21) What is thread testing? 
+A thread testing is a top-down testing, where the progressive integration of components follows the implementation of subsets 
+of the requirements, as opposed to the integration of components by successively lower levels.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+22) List out the roles of software QA engineer?
+
+A software quality assurance engineer tasks include following things
+
+Writing source code
+Software design
+Control of source code
+Reviewing code
+Change management
+Configuration management
+Integration of software
+Program testing
+Release management process
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+23)  How many Test Cases did you write in your last project?
+
+Answer:  I wrote about 1100 Test Cases in my last project. 
+(The reasonable number of Test Cases varies from 500 to thousands. 
+The number 1100 test cases can be completed in a 6 month project duration).
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+24) What document did you refer to write the Test Cases?
+
+To write System Test case, document we will need are the business req spec or customer req spec. 
+The BRS or CRS contains the requirements at the business level and not very detailed like the documents created after the BRS/CRS.
+
+eg: when you open an inbox you should be able to see the recieved mails, when you send a mail, it shuld be stored in sent items.
+ this requiremnts contains many test scenarios. 
+Requirement document. (NOTE: It can also be Use Cases, or Design Document)
+
+As a tester, we start writing the test case based on Use case document or Software Requirement specification document or Wireframes. 
+Its all depend upon the document provided by client.
+
+(Note: It depends company to company. In some companies, they use Use Cases.
+ In some companies, they use Requirement Documents and in some companies, they use Design Document.
+ However, in practical scenario, most of the companies have requirement document at least).
+ 
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+25)  Did you have a situation where you did not have any documents (no requirement document, no Use Cases, or no Design Document) 
+and you had to write the Test Cases? How did you write the Test Cases?
+
+Yes. I have been to that kind of scenarios several times. 
+There were companies where they had no documents at all. 
+In that case, I had to discuss the application scenario and functionalities with the Business Analysts or developer.
+ I kind of prepared a document in consultation with Business Analysts and Developers and then started writing Test Cases.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+26) Have you worked with the Uses Cases before?
+Yes. I have written Test Cases using Use Cases.
+
+
+27)What is a Use Case and what does it include?
+
+A use case is a document that describes the user action and system response for a particular functionality.
+
+It includes cover page, Revision History, Table of Contents, Flow of Events (normal flow and alternative flow), 
+     Exceptions, Special Requirements, Pre-conditions and Post-conditions.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+30)  What is Software Development Life Cycle?
+
+The systems (or software) development life cycle (SDLC) is a conceptual model used in project management 
+that describes the stages involved in an information system development project,
+ from an initial feasibility study through maintenance of the completed application.
+
+It includes the following different stages:
+
+1.  Requirement phase
+
+2.  Design phase
+
+3.  Coding (programming)
+
+4.  Testing
+
+5.  Release (Production)
+
+6.  Maintenance (Support)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+31)  What is Business Requirement Document (BRD)?
+
+It is a document that describes the details of the application functionalities which is required by the user.
+ This document is written by the Business Analysts.
+
+---------------------------------------------------------------------------------------------------------------------------------
+32)  What is meant by Walk-thru meeting?
+
+Before start working in a module and/or after accomplishing the testing of a module, 
+the tester calls a meeting to disseminate his findings or to share his queries to other tester or leads of the company working on the same application.
+---------------------------------------------------------------------------------------------------------------------------------
+
+33)  What is Build?
+When each of the different modules of software is prepared, they are put in a single folder by the Configuration Management Team (CMT) 
+and it is called the ‘Build’. 
+ In other word, the developers put their code in the shared location (folder) and all those code (modules) are combined together 
+so that it is a complete application that works.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+34) What is meant by the Build Deployment?
+
+When the Build is prepared by the CMT, it is sent to different Test Environments, it is called the Build Deployment.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+35) What is Test Strategy?
+
+
+A test strategy is an outline that describes the testing portion of the software development cycle. 
+
+It is created to inform project managers, testers, and developers about some key issues of the testing process. 
+This includes the testing objective, methods of testing new functions, total time and resources required for the project, 
+and the testing environment.
+
+The test strategy describes how the product risks of the stakeholders are mitigated at the test-level, 
+which types of test are to be performed, and which entry and exit criteria apply.
+
+The test strategy is created based on development design documents.. It is written by the Test Manager or Lead.
+
+The following are some of the components that the Test Strategy includes:
+
+1 Test Levels.  2 Roles and Responsibilities.  3 Environment Requirements.  4 Testing Tools. 5 Risks and Mitigation. 
+6 Test Schedule. 7 Regression Test Approach.  8 Test Groups. 9 Test Priorities. 10 Test Status Collections and Reporting.
+ 11 Test Records Maintenance. 12 Requirements traceability matrix. 13 Test Summary
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+36) Are Test Plan and Test Strategy same type of document?
+
+No. They are different documents. Test Plan is a document that collects and organizes test cases by functional areas and/or 
+types of testing in a form that can be presented to the other teams and/or 
+customer where as the Test Strategy is the documented approach to testing. 
+
+Test Plan is prepared by the tester whereas the Test Strategy is prepared by the QA Manager or QA lead.
+
+Both are important pieces of Quality Assurance processes since they help communicate the test approach scope and 
+ensure test coverage while improving the efficiency of the testing effort.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+37)  What are different types of software testing?
+Different types of testing carried out are:
+
+1) Unit testing
+
+2) Shakeout testing
+
+3) Smoke testing (Ad-hoc testing)
+
+4) Functional testing
+
+5) Integration testing
+
+6) Regression testing
+
+7) System testing
+
+8) Load testing
+
+9) Stress testing
+
+10) Performance testing
+
+11) User acceptance testing
+
+12) Black box testing
+
+13) White box testing
+
+14) Alpha testing
+
+15) Beta testing
+
+
+
+Note: Except the Shakeout testing and Unit testing which are respectively done by the CMT and Coder/Developer, 
+all other testing are done by the QA Engineer (Tester).
+
+1) Unit testing: It is a test to check the code whether it is properly working or not as per the requirement. 
+   It is done by the developers (Not testers).
+
+2) Shakeout testing: This test is basically carried out to check the networking facility, database connectivity and the integration 
+   of modules.(It is done by the Configuration Team)
+
+3) Smoke testing: It is an initial set of test to check whether the major functionalities are working or not and also to check
+   the major breakdowns in the application. It is the preliminary test carried out by the SQA tester.
+
+4) Functional testing: al It is a test to check whether each and every functionality of that application 
+   is working as per the requirement. 
+   It is major test where 80% of the tests are done. In this test, the Test Cases are ‘executed’.
+
+5) Integration testing: It is a test to check whether all the modules are combined together or not and working successfully 
+   as specified in the requirement document. 
+
+6) Regression testing: When a functionality is added to an application, we need to make sure that the newly added functionality 
+  does not break the application.  In order to make it sure, we perform a repeated testing which is called Regression Testing. 
+   We also do regression testing after the developers fix the bugs.  
+
+7) System testing: Testing which is based on overall requirements specification and it covers all combined parts of a system. 
+   It is also a black box type of testing.
+
+8) Load testing: It is a test to check the user’s response time of number of users using any one scenario (single business process) 
+   of the same application at the same time.
+
+9) Stress testing: In this type of testing the application is tested against heavy load such as complex numerical values,
+   large number of inputs, large number of queries etc. which checks for the stress/load the applications can withstand.
+
+10) Performance testing: It is a test to check the user’s response time of number of users using multiple scenarios
+    (multiple business process) of the same application at the same time.
+    types : load testing, volume testing, scalability testing, spike testing, stress testing.
+	Tools : Jmeter, TestRunner, oepn STA, Web Load.
+
+11) User acceptance testing: In this type of testing, the software is handed over to the user in order to find out if 
+    the software meets the user expectations and works as it is expected to.
+
+12) Black box testing: It is test where a tester performs testing without looking into the code. 
+    OR A testing method where the application under test is viewed as a black box and the internal behavior of the program 
+    is completely ignored. Testing occurs based upon the external specifications. 
+    Also known as behavioral testing, since only the external behavior of the program is evaluated and analyzed.
+
+13) White box testing: It is a test where a tester looks into the code and performs the testing.
+
+
+14) Alpha testing: In this type of testing, the users are invited at the development center where they use the application
+  and the developers note every particular input or action carried out by the user. 
+  Any type of abnormal behavior of the system is noted and rectified by the developers.
+
+
+
+15) Beta testing: In this type of testing, the software is distributed as a beta version to the users and users test the application
+   at their sites. As the users explore the software, in case if any exception/defect occurs that is reported to the developers.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+38) What is Negative Testing?
+
+Testing the system or application using negative data is called negative testing, 
+for example, testing password entering 6 characters where it should be 8 characters should display a message.
+
+When we test an application by putting negative values (instead of actual values), then the system should not allow the other
+ values rather than the actual value.  The system should give an message that the value is not correct.  
+This is called negative testing.
+
+Another example is, if a user tries to type a letter in a numeric field, the correct behavior in this case would 
+be to display the “Incorrect data type, please enter a number” message.
+ The purpose of negative testing is to detect such situations and prevent applications from crashing. 
+Also, negative testing helps you improve the quality of your application and find its weak points. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+37) What was the process of QA testing in your company where you worked for the last time? 
+(or As far as the QA process is involved, what was the testing process in your company?)?
+
+The QA testing process that was followed in my last company where I worked was like this:
+ 
+First of all the Business Requirement Document was prepared as per the client’s requirement (with the screen shots). 
+Then on the basis of the requirement document, Test Strategy, Test Plans and Test Cases were written in sequential order.
+Once the Build is made and deployed to the different testing environments where different types of testing were performed
+    to check whether there are any defects.
+
+---
+------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
